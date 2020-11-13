@@ -8,16 +8,17 @@ Open Sourcing Mental Illness (OSMI) is a non-profit, 501(c)(3) corporation dedic
 
 Our research question was:
 
-_"What factors can influence tech industry employees to withold discussing mental health illness with their employer"_
+_"What factors can influence tech industry employees to withhold discussing mental health illness with their employer"_
 
-Essentially, we wanted to know what variables would lead to folks answering _Yes_ or _No_ to the target our target variable:
+Essentially, we wanted to know what variables would lead to folks answering _Yes_ or _No_ to our target variable:
 
 _"Do you believe discussing mental health illness with your employer could have negative consequences?"_
 
 We utilized binary classification to train several machine learning models on the dataset. Our main takeaways were respondents knowledge of _benefits_ package, comfortability with _supervisor_ and _interference_ of mental illness with work, were the primary indicators of an answer of _Yes_ to the target variable. Our reccomendations are:
+
 - Having open discussions at the beginning of the hiring process, could improve the comfortability of employees discussions on mental health in the future. 
 
-- Holding benefit fares regularly to explain options for employees to handle their mental health.
+- Holding benefit fairs regularly to explain options for employees to handle their mental health.
  
 - Create options for group activities to strengthen comradery in the workplac
 
@@ -28,7 +29,7 @@ With tech jobs exponentially increasing, mental health within the tech industry 
 
 ## Data
 
-The dataset utilized was from a 2014-2016 tech industry mental illness survey by non-profit OSMI procured through kaggle. The survey consisted of a series of questions with multiple choice answers that varied depedning upon the question asked. For instance, for question:
+The dataset utilized was from a 2014-2016 tech industry mental illness survey by non-profit OSMI procured through kaggle. The survey consisted of a series of questions with multiple choice answers that varied depedning upon the question asked. For instance:
 
 _"If you have a mental health condition, do you feel that it interferes with your work?"_
 
@@ -37,8 +38,6 @@ The answers were:
 - Never
 - Rarely
 - Often
-
-Whereas the answers for our target were _Yes_, _No_ and _Maybe_.
 
 As a result, besides an age, and timestamp column, the data was all categorical. Our target itself actually had three answers:
 
@@ -86,18 +85,16 @@ Questions to consider:
 
 ## Methods
 
-The intial analysis process consisted of basic data cleaning. This included identifying erroneous enteries in the `Age` column, and imputing `Sex`_ to ternary _Male_, _Female_ and _Gender Variant_. After this we converted the target variable to binary and began to compare it against various features within the dataset. Exploratory data analysis (EDA) allowed us to view view age and gender distributions and there respective answers to the target. We then began to create smaller data frames that would allow us to create charts comparing respondents answers to specific questions, and their resulting answer to the target variable. After this we engineered some geographical features dividing the countries up into continent like groups, and the US states into regional type sub-divisions. This allowed us to see patterns in how someone would answer the target variable based on where they are from geographically. 
+The intial analysis process consisted of basic data cleaning. This included identifying erroneous enteries in the `Age` column, and imputing `Sex`_ to ternary _Male_, _Female_ and _Gender Variant_. After this we converted the target variable to binary and began to compare it against various features within the dataset. Exploratory data analysis (EDA) allowed us to view view age and gender distributions and their respective answers to the target. We then began to create smaller data frames that would allow us to create charts comparing respondents answers to specific questions, and their resulting answer to the target variable. After this we engineered some geographical features dividing the countries up into continent like groups, and the US states into regional type sub-divisions. This allowed us to see patterns in how someone would answer the target variable based on where they were geographically located. 
 
 After engineering some features, we ran Logistic Regression and Decision Tree Classifier (DTC) models. We found the Logistic Regression model performed significantly better then the DTC. We subsequently did some feature selection with a Recursive Feature Elimiation Cross Validation (RFECV) and whittled our coefficients down to only the most influential. We subsequently computed frequency tables for each coefficient to gather the log odds of each question. After this  we isolated the top 5 positive and top 5 negative coefficients which informed our reccomendations. 
 
 ## Results
 
-Present your key results. For Phase 1, this will be findings from your descriptive analysis.
-
 Our most sucessful model was a Logistic Regression model, which after RFECV was whittled down from over 90 to 25 features. This gave us an F1 score of ~.89. The DTC model even after RFECV gave us an F1 score of ~.84. Therefore, we decided to proceed with a Logistic Regression model. In analyzing the top coefficients, we found the following:
 
 **Leave**
-- If respondents perceived that is was _very difficult_ to a leave of absence from their job, they answered _Yes_ to the target 94% of the time. 
+- If respondents perceived that is was _very difficult_ to take a leave of absence from their job, they answered _Yes_ to the target 94% of the time. 
 
 **Physical Health**
 - If respondents felt discussing a physical health issue with their employer would _maybe_ lead to negative consequences, they answered _Yes_ to the target 97% of the time.  
@@ -130,13 +127,13 @@ Our most sucessful model was a Logistic Regression model, which after RFECV was 
 
 ## Conclusions
 
-Simply, providing benefits is not enough for an employees to feel comfortable speaking about their mental health. Health benefits, in particular leave and mental illness health benefits, need to be championed in order to create optimal environment for open discusions. Work relationship with direct supervisor is paramount to creating a safe space for discussion and physical health is a more comfortable topic of discussion for employees than mental health. 
+Simply, providing benefits is not enough for an employees to feel comfortable speaking about their mental health. Health benefits, in particular leave and mental illness health benefits, need to be championed in order to create an optimal environment for open discusions. Work relationship with direct supervisor is paramount to creating a safe space for discussion and physical health is a more comfortable topic of discussion for employees than mental health. 
 
 As a result our recommendations for next steps are:
 
 - Having open discussions at the beginning of the hiring process, could improve the future comfortability of employees discussions on mental illness. 
 
-- Holding benefit fares regularly to explain options for employees to handle their mental health could improve visability of benefit options for mental illness.
+- Holding benefit fairs regularly to explain options for employees to handle their mental health could improve visability of benefit options for mental illness.
  
 - Creating options for group activities to strengthen comradery in the workplace could improve relationships between employees and direct supervisors. 
 
