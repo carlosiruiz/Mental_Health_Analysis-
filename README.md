@@ -16,7 +16,7 @@ Essentially, we wanted to know what variables would lead to folks answering _Yes
 
 Summary of the business problem you are trying to solve, and the data questions that you plan to answer in order to solve them.
 
-With tech jobs increasing exponentially, mental health within the tech industry continious to be a salient topic. According to [OSMI](https://osmihelp.org/about/about-osmi), the stigma and the way we talk about mental illness in general, and specifically within the tech industry, needs to change in order for those suffering to have the optimal environment to recover. Therefore, we chose _"Do you believe discussing mental health illness with your employer could have negative consequences_" as a target variable for this analysis. We hypothesized that if an employee felt discussing a mental health issue with their employer could lead to negative consequences, this would indicate a poor environment for those suffering to recover. Therefore, tech employers looking to improve their workplace environments for those with mental health illness, could take the reccomendations provided from this analysis to make long term sustainable changes to their structures.
+With tech jobs exponentially increasing, mental health within the tech industry continious to be a salient topic. According to [OSMI](https://osmihelp.org/about/about-osmi), the environment and the way we talk about mental illness in general, needs to change. This was our rationale behind choosing _"Do you believe discussing mental health illness with your employer could have negative consequences_" as our target variable. We hypothesized that if an employee felt discussing a mental health issue with their employer could lead to negative consequences, this would indicate a poor environment for those suffering to recover. Therefore, tech employers looking to improve their workplace environments for those with mental health illness, could take the reccomendations provided from this analysis to make long term sustainable changes.
 
 
 ***
@@ -30,6 +30,54 @@ Questions to consider:
 
 Describe the data being used for this project.
 
+The dataset utilized was from a 2014-2016 tech industry mental illness survey by non-profit OSMI procured through kaggle. The survey consisted of a series of questions with multiple choice answers that varied depedning upon the question asked. For instance, for question:
+
+_"If you have a mental health condition, do you feel that it interferes with your work?"_
+
+The answers were:
+- Sometimes
+- Never
+- Rarely
+- Often
+
+Whereas the answers for our target were _Yes_, _No_ and _Maybe_.
+
+As a result, besides an age, and timestamp column, the data was all categorical. Our target itself actually had three answers:
+
+_"Do you believe discussing mental health illness with your employer could have negative consequences?"_
+- Yes
+- No
+- Maybe
+
+We ended up combining _Yes/Mabye_, to make it a strict binary classification. We did this because we felt if respondents were unsure (answered maybe) to the question, then it was evident there was somem degree of uncomfortabiliy in broaching the subject of mental illness with their employer. 
+
+Here is a list of all the questions utilized in the survey:
+
+| #  | Question                                                                                                               |
+|----|------------------------------------------------------------------------------------------------------------------------|
+| 1  | If you live in the United States, which state or territory do you live   in?                                           |
+| 2  | Are you self-employed?                                                                                                 |
+| 3  | Do you have a family history of mental illness?                                                                        |
+| 4  | Have you sought treatment for a mental health condition?                                                               |
+| 5  | If you have a mental health condition, do you feel that it interferes   with your work?                                |
+| 6  | How many employees does your company or organization have?                                                             |
+| 7  | Do you work remotely (outside of an office) at least 50% of the time?                                                  |
+| 8  | Is your employer primarily a tech company/organization?                                                                |
+| 9  | Does your employer provide mental health benefits?                                                                     |
+| 10 | Do you know the options for mental health care your employer provides?                                                 |
+| 11 | Has your employer ever discussed mental health as part of an employee   wellness program?                              |
+| 12 | Does your employer provide resources to learn more about mental health   issues and how to seek help?                  |
+| 13 | Is your anonymity protected if you choose to take advantage of mental   health or substance abuse treatment resources? |
+| 14 | How easy is it for you to take medical leave for a mental health   condition?                                          |
+| 15 | Do you think that discussing a mental health issue with your employer   would have negative consequences?              |
+| 16 | Do you think that discussing a physical health issue with your employer   would have negative consequences?            |
+| 17 | Would you be willing to discuss a mental health issue with your   coworkers?                                           |
+| 18 | Would you be willing to discuss a mental health issue with your direct   supervisor(s)?                                |
+| 19 | Would you bring up a mental health issue with a potential employer in an   interview?                                  |
+| 20 | Would you bring up a physical health issue with a potential employer in   an interview?                                |
+| 21 | Do you feel that your employer takes mental health as seriously as   physical health?                                  |
+| 22 | Have you heard of or observed negative consequences for coworkers with   mental health conditions in your workplace?   |
+| 23 | Any additional notes or comments                                                                                       |
 ***
 Questions to consider:
 * Where did the data come from, and how do they relate to the data analysis questions?
