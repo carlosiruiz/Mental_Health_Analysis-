@@ -4,8 +4,6 @@
 
 ## Overview
 
-A one-paragraph overview of the project, including the business problem, data, methods, results and recommendations.
-
 Open Sourcing Mental Illness (OSMI) is a non-profit, 501(c)(3) corporation dedicated to raising awareness and educating others about mental illness. They provide resources to support mental wellness in the tech and open source communitees. A dataset from a OSMI survey conducted primariliy in 2014, was procured via kaggle and utilized for our analysis. 
 
 Our research question was:
@@ -20,21 +18,9 @@ We utilized binary classification to train several machine learning models on th
 
 ## Business Problem
 
-Summary of the business problem you are trying to solve, and the data questions that you plan to answer in order to solve them.
-
 With tech jobs exponentially increasing, mental health within the tech industry continious to be a salient topic. According to [OSMI](https://osmihelp.org/about/about-osmi), the environment and the way we talk about mental illness in general, needs to change. This was our rationale behind choosing _"Do you believe discussing mental health illness with your employer could have negative consequences_" as our target variable. We hypothesized that if an employee felt discussing a mental health issue with their employer could lead to negative consequences, this would indicate a poor environment for those suffering to recover. Therefore, tech employers looking to improve their workplace environments for those with mental health illness, could take the reccomendations provided from this analysis to make long term sustainable changes.
 
-
-***
-Questions to consider:
-* What are the business's pain points related to this project?
-* How did you pick the data analysis question(s) that you did?
-* Why are these questions important from a business perspective?
-***
-
 ## Data
-
-Describe the data being used for this project.
 
 The dataset utilized was from a 2014-2016 tech industry mental illness survey by non-profit OSMI procured through kaggle. The survey consisted of a series of questions with multiple choice answers that varied depedning upon the question asked. For instance, for question:
 
@@ -94,17 +80,9 @@ Questions to consider:
 
 ## Methods
 
-Describe the process for analyzing or modeling the data. For Phase 1, this will be descriptive analysis.
-
 The intial analysis process consisted of basic data cleaning. This included identifying erroneous enteries in the `Age` column, and imputing `Sex`_ to ternary _Male_, _Female_ and _Gender Variant_. After this we converted the target variable to binary and began to compare it against various features within the dataset. Exploratory data analysis (EDA) allowed us to view view age and gender distributions and there respective answers to the target. We then began to create smaller data frames that would allow us to create charts comparing respondents answers to specific questions, and their resulting answer to the target variable. After this we engineered some geographical features dividing the countries up into continent like groups, and the US states into regional type sub-divisions. This allowed us to see patterns in how someone would answer the target variable based on where they are from geographically. 
 
 After engineering some features, we ran Logistic Regression and Decision Tree Classifier (DTC) models. We found the Logistic Regression model performed significantly better then the DTC. We subsequently did some feature selection with a Recursive Feature Elimiation Cross Validation (RFECV) and whittled our coefficients down to only the most influential. We subsequently computed frequency tables for each coefficient to gather the log odds of each question. After this  we isolated the top 5 positive and top 5 negative coefficients which informed our reccomendations. 
-
-***
-Questions to consider:
-* How did you prepare, analyze or model the data?
-* Why is this approach appropriate given the data and the business problem?
-***
 
 ## Results
 
@@ -124,15 +102,6 @@ Our most sucessful model was a Logistic Regression model, which after RFECV was 
 **Work interfere**
 - If respondents had a mental health illness and felt  it interfered with their work_often_, they answered _Yes_ to the target 74% of the time 
 
-
-***
-Questions to consider:
-* How do you interpret the results?
-* How confident are you that your results would generalize beyond the data you have?
-***
-
-Here is an example of how to embed images from your sub-folder:
-
 ### Binary Target Percent
 ![binary_target_percent](./images/binary_target_percent.png)
 
@@ -144,12 +113,12 @@ Here is an example of how to embed images from your sub-folder:
 - The age and gender of respondents did not have a large relationship with the target. There is a slight increase of older respondents answering yes to the target then no. 
 
 ### Mental Health Interfere Work
-![mental_health_int_work](.images/mental_health_int_work.png)
+![mental_health_int_work](./images/mental_health_int_work.png)
 
 - Those that suffered from mental illness and answered that is _sometimes_ interfered with their work, overwhelmingly answered yes to the target. 
 
 ### Final Coefficients
-![final_coefficients](.images/final_features_coeff_all.png)
+![final_coefficients](./images/final_features_coeff_all.png)
 
 - A list of features and their respective coefficients.
 
