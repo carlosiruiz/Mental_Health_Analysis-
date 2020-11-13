@@ -15,6 +15,12 @@ Essentially, we wanted to know what variables would lead to folks answering _Yes
 _"Do you believe discussing mental health illness with your employer could have negative consequences?"_
 
 We utilized binary classification to train several machine learning models on the dataset. Our main takeaways were respondents knowledge of _benefits_ package, comfortability with _supervisor_ and _interference_ of mental illness with work, were the primary indicators of an answer of _Yes_ to the target variable. Our reccomendations are:
+- Having open discussions at the beginning of the hiring process, could improve the comfortability of employees discussions on mental health in the future. 
+
+- Holding benefit fares regularly to explain options for employees to handle their mental health.
+ 
+- Create options for group activities to strengthen comradery in the workplac
+
 
 ## Business Problem
 
@@ -124,27 +130,28 @@ Our most sucessful model was a Logistic Regression model, which after RFECV was 
 
 ## Conclusions
 
-Provide your conclusions about the work you've done, including any limitations or next steps.
+Simply, providing benefits is not enough for an employees to feel comfortable speaking about their mental health. Health benefits, in particular leave and mental illness health benefits, need to be championed in order to create optimal environment for open discusions. Work relationship with direct supervisor is paramount to creating a safe space for discussion and physical health is a more comfortable topic of discussion for employees than mental health. 
 
-***
-Questions to consider:
-* What would you recommend the business do as a result of this work?
-* What are some reasons why your analysis might not fully solve the business problem?
-* What else could you do in the future to improve this project?
-***
+As a result our recommendations for next steps are:
+
+- Having open discussions at the beginning of the hiring process, could improve the future comfortability of employees discussions on mental illness. 
+
+- Holding benefit fares regularly to explain options for employees to handle their mental health could improve visability of benefit options for mental illness.
+ 
+- Creating options for group activities to strengthen comradery in the workplace could improve relationships between employees and direct supervisors. 
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./Master_Mentalhealth_2.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+Please review our full analysis in [our Jupyter Notebook](./Master_Mentalhealth.ipynb) or our [presentation](./Mental_Health_in_the_Tech_Industry.pdf).
 
-For any additional questions, please contact **Ignacio Ruiz, Justin Williams justinmorganwilliams@gmail.com**
+For any additional questions, please contact **Ignacio Ruiz cruizbran@gmail.com, Justin Williams justinmorganwilliams@gmail.com**
 
 ## Repository Structure
 
 ```
 ├── README.md                           <- The top-level README for reviewers of this project
-├── Master_Mentalhealth_2.ipynb   <- Narrative documentation of analysis in Jupyter notebook
-├── DS_Project_Presentation.pdf         <- PDF version of project presentation
+├── Master_Mentalhealth.ipynb   <- Narrative documentation of analysis in Jupyter notebook
+├── Mental_Health_in_the_Tech_Industry.pdf         <- PDF version of project presentation
 ├── data                                <- Both sourced externally and generated from code
 └── images                              <- Both sourced externally and generated from code
 ```
