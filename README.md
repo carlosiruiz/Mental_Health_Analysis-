@@ -6,11 +6,17 @@
 
 A one-paragraph overview of the project, including the business problem, data, methods, results and recommendations.
 
-Open Sourcing Mental Illness (OSMI) is a non-profit, 501(c)(3) corporation dedicated to raising awareness and educating others about mental illness. They provide resources to support mental wellness in the tech and open source communitees. A dataset from a OSMI survey conducted primariliy in 2014, was procured via kaggle and utilized for our analysis. Our research question was:
+Open Sourcing Mental Illness (OSMI) is a non-profit, 501(c)(3) corporation dedicated to raising awareness and educating others about mental illness. They provide resources to support mental wellness in the tech and open source communitees. A dataset from a OSMI survey conducted primariliy in 2014, was procured via kaggle and utilized for our analysis. 
+
+Our research question was:
+
+_"What factors can influence tech industry employees to withold discussing mental health illness with their employer"_
+
+Essentially, we wanted to know what variables would lead to folks answering _Yes_ or _No_ to the target our target variable:
 
 _"Do you believe discussing mental health illness with your employer could have negative consequences?"_
 
-Essentially, we wanted to know what variables would lead to folks answering _Yes_ or _No_ to the aforementioned. We utilized binary classification to train several machine learning models on the dataset. Our main takeaways were respondents knowledge of _benefits_ package, comfortability with _supervisor_ and _interference_ of mental illness with work, were the primary indicators of an answer of _Yes_ to the target variable. Our reccomendations are:
+We utilized binary classification to train several machine learning models on the dataset. Our main takeaways were respondents knowledge of _benefits_ package, comfortability with _supervisor_ and _interference_ of mental illness with work, were the primary indicators of an answer of _Yes_ to the target variable. Our reccomendations are:
 
 ## Business Problem
 
@@ -51,7 +57,7 @@ _"Do you believe discussing mental health illness with your employer could have 
 
 We ended up combining _Yes/Mabye_, to make it a strict binary classification. We did this because we felt if respondents were unsure (answered maybe) to the question, then it was evident there was somem degree of uncomfortabiliy in broaching the subject of mental illness with their employer. 
 
-Here is a list of all the questions utilized in the survey:
+Besides basic demographical questions of `Age`, `Sex`, `Country` and `State`, here is a list of all the questions asked in the survey and subsequently utilized in this analysis:
 
 | #  | Question                                                                                                               |
 |----|------------------------------------------------------------------------------------------------------------------------|
@@ -90,6 +96,10 @@ Questions to consider:
 
 Describe the process for analyzing or modeling the data. For Phase 1, this will be descriptive analysis.
 
+The intial analysis process consisted of basic data cleaning. This included identifying erroneous enteries in the `Age` column, and imputing `Sex`_ to ternary _Male_, _Female_ and _Gender Variant_. After this we converted the target variable to binary and began to compare it against various features within the dataset. Exploratory data analysis (EDA) allowed us to view view age and gender distributions and there respective answers to the target. We then began to create smaller data frames that would allow us to create charts comparing respondents answers to specific questions, and their resulting answer to the target variable. After this we engineered some geographical features dividing the countries up into continent like groups, and the US states into regional type sub-divisions. This allowed us to see patterns in how someone would answer the target variable based on where they are from geographically. 
+
+After engineering some features, we ran Logistic Regression and Decision Tree Classifier (DTC) models. We found the Logistic Regression model performed significantly better then the DTC. We subsequently did some feature selection with a Recursive Feature Elimiation Cross Validation (RFECV) and whittled our coefficients down to only the most influential. We subsequently computed frequency tables for each coefficient to gather the log odds of each question. After this  we isolated the top 5 positive and top 5 negative coefficients which informed our reccomendations. 
+
 ***
 Questions to consider:
 * How did you prepare, analyze or model the data?
@@ -100,6 +110,21 @@ Questions to consider:
 
 Present your key results. For Phase 1, this will be findings from your descriptive analysis.
 
+Our most sucessful model was a Logistic Regression model, which after RFECV was whittled down from over 90 to 25 features. This gave us an F1 score of ~.89. The DTC model even after RFECV gave us an F1 score of ~.84. Therefore, we decided to proceed with a Logistic Regression model. In analyzing the top coefficients, we found the following:
+
+**Leave**
+- If respondents perceived that is was _very difficult_ to a leave of absence from their job, they answered _Yes_ to the target 94% of the time. 
+
+**Physical Health**
+- If respondents felt discussing a physical health issue with their employer would _maybe_ lead to negative consequences, they answered _Yes_ to the target 97% of the time.  
+
+**Supervisor**
+- If respondents did _not_ feel comfortable discussing a mental health illness with their direct supervisor, they answered _Yes_ to the target 92% of the time
+
+**Work interfere**
+- If respondents had a mental health illness and felt  it interfered with their work_often_, they answered _Yes_ to the target 74% of the time 
+
+
 ***
 Questions to consider:
 * How do you interpret the results?
@@ -108,8 +133,25 @@ Questions to consider:
 
 Here is an example of how to embed images from your sub-folder:
 
-### Visual 1
-![graph1](./images/viz1.png)
+### Binary Target Percent
+![binary_target_percent](./images/binary_target_percent.png)
+
+- Binary target around 60% yes and 37% no
+
+### Gender, Age and Target
+![violin_plot](./images/age_gender_target.png)
+
+- The age and gender of respondents did not have a large relationship with the target. There is a slight increase of older respondents answering yes to the target then no. 
+
+### Mental Health Interfere Work
+![mental_health_int_work](.images/mental_health_int_work.png)
+
+- Those that suffered from mental illness and answered that is _sometimes_ interfered with their work, overwhelmingly answered yes to the target. 
+
+### Final Coefficients
+![final_coefficients](.images/final_features_coeff_all.png)
+
+- A list of features and their respective coefficients.
 
 ## Conclusions
 
@@ -124,17 +166,15 @@ Questions to consider:
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./dsc-phase1-project-template.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+Please review our full analysis in [our Jupyter Notebook](./Master_Mentalhealth_2.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
 
-For any additional questions, please contact **name & email, name & email**
+For any additional questions, please contact **Ignacio Ruiz, Justin Williams justinmorganwilliams@gmail.com**
 
 ## Repository Structure
 
-Describe the structure of your repository and its contents, for example:
-
 ```
 ├── README.md                           <- The top-level README for reviewers of this project
-├── dsc-phase1-project-template.ipynb   <- Narrative documentation of analysis in Jupyter notebook
+├── Master_Mentalhealth_2.ipynb   <- Narrative documentation of analysis in Jupyter notebook
 ├── DS_Project_Presentation.pdf         <- PDF version of project presentation
 ├── data                                <- Both sourced externally and generated from code
 └── images                              <- Both sourced externally and generated from code
