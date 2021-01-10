@@ -1,0 +1,16 @@
+gender,work_interfere,count,prop
+Female,Missing,35,14.58
+Female,Never,23,9.58
+Female,Often,31,12.92
+Female,Rarely,43,17.92
+Female,Sometimes,108,45.0
+Gender Variant,Missing,5,11.36
+Gender Variant,Never,5,11.36
+Gender Variant,Often,10,22.73
+Gender Variant,Rarely,6,13.64
+Gender Variant,Sometimes,18,40.91
+Male,Missing,224,22.97
+Male,Never,185,18.97
+Male,Often,103,10.56
+Male,Rarely,124,12.72
+Male,Sometimes,339,34.77
